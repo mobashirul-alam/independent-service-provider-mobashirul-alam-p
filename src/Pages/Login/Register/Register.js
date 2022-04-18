@@ -5,6 +5,7 @@ import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { async } from '@firebase/util';
+import Loading from '../../Shared/Loading/Loading';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -34,7 +35,7 @@ const Register = () => {
     }
 
     if (loading || updating) {
-        return <p className='text-center display-1'>Loading...</p>
+        return <Loading></Loading>;
     }
     if (user) {
         navigate('/home');
@@ -62,7 +63,7 @@ const Register = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control ref={passwordRef} type="password" placeholder="Password" required />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button className='w-50 d-block mx-auto' variant="primary" type="submit">
                         Register
                     </Button>
                 </Form>

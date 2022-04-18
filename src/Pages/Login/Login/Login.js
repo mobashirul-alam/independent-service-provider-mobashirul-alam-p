@@ -1,12 +1,16 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../../firebase.init';
+import Loading from '../../Shared/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
     const navigate = useNavigate();
+    const [err, setErr] = useState();
     const emailRef = useRef('');
     const passwordRef = useRef('');
 
@@ -17,6 +21,8 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    const [sendPasswordResetEmail, sending, updateError] = useSendPasswordResetEmail(auth);
+
     const handleLogin = (e) => {
         e.preventDefault();
         const email = emailRef.current.value;
@@ -25,8 +31,26 @@ const Login = () => {
         signInWithEmailAndPassword(email, password);
     }
 
+    const handlePasswordReset = async () => {
+        const email = emailRef.current.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Check your gmail inbox');
+        }
+        else (
+            toast('Please enter your email')
+        )
+    }
+
+    useEffect(() => {
+        if (error || updateError) {
+            const errorMessage = <p>Error: {error?.message} {updateError?.message}</p>;
+            setErr(errorMessage);
+        }
+    }, [error, updateError]);
+
     if (loading) {
-        return <p className='text-center display-1'>Loading...</p>
+        return <Loading></Loading>;
     }
     if (user) {
         navigate('/home')
@@ -46,22 +70,25 @@ const Login = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control ref={passwordRef} type="password" placeholder="Password" />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button className='w-50 d-block mx-auto' variant="primary" type="submit">
                         Login
                     </Button>
                 </Form>
                 <div className='w-75 mx-auto'>
+                    <p className='text-danger'>{err}</p>
                     <p>
                         New to Pro-Fit ?
                         <Link className='text-decoration-none' to="/register"> Please Register</Link>
                     </p>
                     <p className='mb-0'>
                         Forget Password ?
-                        <Link className='text-decoration-none' to="/register"> Reset Password</Link>
+                        <button onClick={handlePasswordReset}
+                            className='btn btn-link text-decoration-none p-0'> Reset Password</button>
                     </p>
                 </div>
                 <SocialLogin></SocialLogin>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
