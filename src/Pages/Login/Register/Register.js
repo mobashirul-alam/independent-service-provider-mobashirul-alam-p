@@ -1,11 +1,12 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
     return (
         <div>
-            <div className='w-50 shadow mx-auto border border-primary rounded-3 my-3'>
+            <div className='w-50 shadow-lg mx-auto rounded-3 py-2 my-3'>
                 <h1 className='text-center my-3'>Please Register</h1>
                 <Form className='w-75 mx-auto my-3'>
                     <Form.Group className="mb-3">
@@ -24,10 +25,11 @@ const Register = () => {
                         Register
                     </Button>
                 </Form>
-                <p className='w-75 mx-auto'>
+                <p className='w-75 mx-auto mb-0'>
                     Already have an account ?
                     <Link className='text-decoration-none' to="/login"> Please Login</Link>
                 </p>
+                <SocialLogin></SocialLogin>
             </div>
         </div>
     );
