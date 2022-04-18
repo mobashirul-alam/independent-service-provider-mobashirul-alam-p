@@ -1,15 +1,16 @@
 import React from 'react';
 import logo from '../../../Images/pt.png'
+import backgroundImage from '../../../Images/banner/banner-4.jpg'
 
-const Display = () => {
-    return (
-        <div className='container'>
-            <div className='row py-5 my-5'>
+const Display = () => (
+    <div style={{ backgroundImage: `url(${backgroundImage})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+        <div style={{ backgroundColor: 'rgba(0, 0, 0, .3)' }}>
+            <div className='container row py-5 my-5 mx-auto'>
                 <div className='col-6 d-flex justify-content-center'>
                     <img src={logo} alt="" />
                 </div>
                 <div className='col-6 my-auto'>
-                    <p>
+                    <p className='text-white'>
                         <span className='display-1'>Most Desired</span>
                         <br />
                         <span className='display-1 border-bottom border-warning border-5'>Most Wanted</span>
@@ -22,7 +23,7 @@ const Display = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    </div>
+);
 
 export default Display;
