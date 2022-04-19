@@ -7,8 +7,8 @@ const Service = ({ service }) => {
     const { name, price, shortDescription, img } = service;
 
     const handleBookingCheckout = () => {
-        navigate('/checkout')
-    }
+        navigate(`/checkout/${service.id}`);
+    };
 
     return (
         <div className='col-12 col-md-6 col-lg-4 position-relative'>

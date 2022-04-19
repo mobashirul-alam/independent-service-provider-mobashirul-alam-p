@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
-import { async } from '@firebase/util';
 import Loading from '../../Shared/Loading/Loading';
 
 const Register = () => {
