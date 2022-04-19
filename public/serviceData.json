@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name": "Weight Loss Program",
+        "price": 99,
+        "shortDescription": "Maintaining your weight, three or four days of strength training like weight lifting, squats, lunges, push ups, etc. in week.",
+        "img": "https://jagged-fitness.com/wp-content/uploads/2020/09/Personal-training-for-weight-loss-near-me.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Gym Training Session",
+        "price": 89,
+        "shortDescription": "To exercise safely, effectively with a lot of fun. With accountability and a lot of support will be provided. Special training for your big day.",
+        "img": "https://jackcityfitness.com/wp-content/uploads/bigstock-A-Personal-Trainer-Motivates-T-440620910-1250x834.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Personal home training",
+        "price": 129,
+        "shortDescription": "If you feel uncomfortable in gym center with a lot of people, then. It's personal home training program for you as with your comfort.",
+        "img": "https://media.istockphoto.com/photos/stretching-in-the-gym-with-a-personal-trainer-picture-id1040504314?k=20&m=1040504314&s=612x612&w=0&h=B7I5Zik1yxKmThqqbvjSkg1t69TPGJ8rhSj8WC91H1A="
+    },
+    {
+        "id": 4,
+        "name": "Online training Session",
+        "price": 119,
+        "shortDescription": "Live virtual personal training for you as your comfortness. Each session will help you to get your goals. No need of gym of equipment.",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg8ezdIK8DqmO8RWyoMh5gS8cd9ldTj6g64w&usqp=CAU"
+    }
+]
