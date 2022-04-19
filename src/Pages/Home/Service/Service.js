@@ -1,8 +1,15 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const Service = ({ service }) => {
+    const navigate = useNavigate();
     const { name, price, shortDescription, img } = service;
+
+    const handleBookingCheckout = () => {
+        navigate('/checkout')
+    }
+
     return (
         <div className='col-4 position-relative'>
             <Card className='shadow h-100 pb-5 rounded-pill' style={{ width: '18rem' }}>
@@ -21,7 +28,8 @@ const Service = ({ service }) => {
                                     /month
                                 </small>
                             </Card.Text>
-                            <Button className='w-100 py-2 fs-5' variant="primary">Get Booking</Button>
+                            <Button onClick={handleBookingCheckout}
+                                className='w-100 py-2 fs-5' variant="primary">Get Booking</Button>
                         </div>
                     </Card.Body>
                 </div>
