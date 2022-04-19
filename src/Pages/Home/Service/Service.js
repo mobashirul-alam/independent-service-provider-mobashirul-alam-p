@@ -11,7 +11,7 @@ const Service = ({ service }) => {
     }
 
     return (
-        <div className='col-4 position-relative'>
+        <div className='col-12 col-md-6 col-lg-4 position-relative'>
             <Card className='shadow h-100 pb-5 rounded-pill' style={{ width: '18rem' }}>
                 <div className='pb-5'>
                     <Card.Img variant="top" height={190} src={img} />

@@ -6,10 +6,10 @@ const Display = () => (
     <div style={{ backgroundImage: `url(${backgroundImage})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
         <div style={{ backgroundColor: 'rgba(0, 0, 0, .3)' }}>
             <div className='container row py-5 my-5 mx-auto'>
-                <div className='col-6 d-flex justify-content-center'>
-                    <img src={logo} alt="" />
+                <div className='col-12 col-md-6 d-flex justify-content-center'>
+                    <img className='img-fluid' src={logo} alt="" />
                 </div>
-                <div className='col-6 my-auto'>
+                <div className='col-12 col-md-6 my-auto'>
                     <p className='text-white'>
                         <span className='display-1'>Most Desired</span>
                         <br />

@@ -3,8 +3,8 @@ import useGetServiceData from '../../../CustomHooks/useGetServiceData/useGetServ
 import Service from '../Service/Service';
 
 const Services = () => {
-    const [services, setServices] = useGetServiceData();
-    console.log(services)
+    const [services] = useGetServiceData();
+
     return (
         <div id='services' className='container'>
             <h1 className='text-center display-3 mb-5'>I PROVIDE</h1>
