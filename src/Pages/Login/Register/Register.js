@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
@@ -23,6 +23,13 @@ const Register = () => {
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
+    useEffect(() => {
+        if (error || updateError) {
+            const errMessage = error?.message || updateError?.message;
+            setErrorMessage(errMessage);
+        }
+    }, [error, updateError]);
+
     const handleRegister = async (e) => {
         e.preventDefault();
         const name = nameRef.current.value;
@@ -39,11 +46,6 @@ const Register = () => {
     }
     if (user) {
         navigate('/home');
-    }
-
-    if (error || updateError) {
-        const errMessage = error?.message || updateError?.message;
-        setErrorMessage(errMessage);
     }
 
     return (
@@ -67,11 +69,13 @@ const Register = () => {
                         Register
                     </Button>
                 </Form>
-                <p className='text-danger'>{errorMessage}</p>
-                <p className='w-75 mx-auto mb-0'>
-                    Already have an account ?
-                    <Link className='text-decoration-none' to="/login"> Please Login</Link>
-                </p>
+                <div className='w-75 mx-auto'>
+                    <p className='text-danger'>{errorMessage}</p>
+                    <p className='mb-0'>
+                        Already have an account ?
+                        <Link className='text-decoration-none' to="/login"> Please Login</Link>
+                    </p>
+                </div>
                 <SocialLogin></SocialLogin>
             </div>
         </div>
