@@ -13,8 +13,7 @@
 ## Technologies used in this project
 * Create-react-app
 * React Router
-* React Bootstrap
 * Bootstrap
-* Firebase
+* React Bootstrap
 * React firebase hooks
-* React Toastify
+* React-toastify
